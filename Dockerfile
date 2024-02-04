@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 COPY app/ ./
 
 EXPOSE 8080
-ENTRYPOINT ["python3", "app.py"]
+CMD ["python3", "app.py"]
