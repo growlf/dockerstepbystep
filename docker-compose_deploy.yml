@@ -9,3 +9,7 @@ services:
       - "8080:8080"
     volumes:
       - "app_data:/var/app_data"
+
+volumes:
+  app_data:
+  
