@@ -57,4 +57,4 @@ if __name__ == "__main__":
     COUNTER_FILE.touch()
 
     # Start the application
-    app.run(debug=True, host="0.0.0.0", port=8081)
+    app.run(debug=True, host="0.0.0.0", port=8080)
