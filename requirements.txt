@@ -1,2 +1,2 @@
 Flask==2.0.2
-redis
+Werkzeug==2.2.2
