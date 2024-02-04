@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  myapp:
+    container_name: myapp
+    image: myapp:wdb_latest
+    build: 
+        context: .
+        dockerfile: Dockerfile_wdb
+    ports:
+      - "8080:8080"
+      
+  redis:
+    container_name: redisdb
+    image: "redis:alpine"
+    volumes:
+      - "./app_data:/data"
+
+
+volumes:
+  app_data:
