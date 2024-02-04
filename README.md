@@ -246,7 +246,7 @@ Since this document is intended to be used with the video, and this tool is larg
 
 * [Docker](https://docs.docker.com/)
 * [Docker Hub](https://hub.docker.com/) - home of many official images, and more
-* [Take 3 - free Business Edition Portainer]([text](https://www.portainer.io/take-3))
+* [Take 3 - free Business Edition Portainer](https://www.portainer.io/take-3)
 * [Toolbox](https://github.com/growlf/toolbox)
 
 ## Authors and Inspiration
