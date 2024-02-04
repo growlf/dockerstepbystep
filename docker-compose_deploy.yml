@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  myapp:
+    container_name: myapp
+    image: dockerstepbystep:latest
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - "app_data:/var/app_data"
