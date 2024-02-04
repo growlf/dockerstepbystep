@@ -1,6 +1,6 @@
 # this is the file used to deploy on Portainer
 # or other more permanent hosting solutions
-version: "3.9"
+version: "3.7"
 
 services:
   myapp:
