@@ -234,7 +234,7 @@ Since this document is intended to be used with the video, and this tool is larg
 
 * Getting started wth [Docker](https://www.docker.com/get-started)
 * Getting started with [docker-compose](https://docs.docker.com/compose/gettingstarted/)
-* Install [Portainer]([text](https://docs.portainer.io/start/install-ce))
+* Install [Portainer](https://docs.portainer.io/start/install-ce)
 
 ## Images used
 
