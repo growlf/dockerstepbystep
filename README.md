@@ -166,69 +166,57 @@ Do not forget to stop the container.  Since we used the `--rm` flag, it will aut
     docker stop test1
 
 
-## 4.) Connecting another container with docker-compose
+## 4.) Using docker-compose
 
-Many times, we will want to create more than one service for a particular deployment.  Think in terms of a website that also has a database server.  In this example we will look at only two services, but you can create and connect to more.
+Many times, we will want to create more than one service for a particular deployment, or deploy the same stack in multiple environments.  Think in terms of a website that is comprised of a database server, a content engine, and a proxy.
 
-### Docker-compose
+### Docker compose
 
-We are now going to use `docker-compose` to develop and test our application further because it simplifies working with multiple containers/volumes/networks/etc and also assists in some of the repetitive tasks of our cycle.  Once our application is ready for 'real' deployment, we will likely want to create a stack file from our `docker-compose.yml` which will allow the deployment to multiple hosts.
+We are now going to use the `docker-compose.yml` file to develop and test our application further because it simplifies and ensures consistancy of our working _and_ deployment environments.  The `docker-compose.yml` can also allow deployment to multiple hosts simultaneously on swarm enabled hosts.
 
-Make sure that you have docker-compose installed on your host.  Then execute the docker-compose command to build the app.
+Make sure that you have [docker compose plugin installed]([text](https://docs.docker.com/compose/install/linux/)) on your host. Now, bring the container up using docker compose, like so:
 
-    docker-compose build
+    docker compose up
 
-Now, bring the container up using docker-compose.
-
-    docker-compose up
-
-This command essentially replicates the lengthy `docker run --rm -d -p 8080:8080 --name test1 -v ${PWD}/app_data:/var/app_data/ myapp` command by putting the configuration information into `docker-compose.yml`.
+This command essentially replicates the lengthy `docker run --rm -d -p 8080:8080 --name test1 -v ${PWD}/app_data:/var/app_data/ myapp` command by putting the configuration information into thr `docker-compose.yml` file in the same directory.
 
 Browse your webpage (`http://localhost:8080/`) to see that the application is running and properly incrementing our counter.
 
 Hitting `CTL-C` will disconnect you from the log, but it will not shut down the container. Shut down the container when we have finished using it.
 
-    docker-compose down
+    docker compose down
 
 Using the `down` subcommand will tell docker to remove our container, transient volumes, networks, etc.  Leaving a clean slate for our next run.
 
-### Adding another container
+We can also run the stack in detached (aka `daemon` or background) mode, by simply adding the `-d` to the end of the command like so:
 
-We want to add a database to our project now. We will be using a different application `app_wdb.py` and docker compose file `docker-compose-wdb.yml`. The application is very similar to the previous one, except that it is 'with database' instead of using `counter.txt` for the counter. Take a look at the contents of both files. You may find it helpful to do a side-by-side comparison between the two applications.
+    docker compose up -d
 
-Start by building the container.
-
-    docker-compose -f ./docker-compose-wdb.yml build
-
-Bring up the container. Notice how the log contains information about both the application and the Redis database.
-
-    docker-compose -f ./docker-compose-wdb.yml up
-
-Browse your webpage (`http://localhost:8080/`) to see that the application is running and properly incrementing our counter.
-
-Don't forget to shut down the container.
-
-    docker-compose -f ./docker-compose-wdb.yml down
-
-We can also run the container in detached mode,
-
-    docker-compose -f ./docker-compose-wdb.yml up -d
-
-see what containers are running,
+To see see what containers are running,
 
     docker ps
 
-connect to view the log file,
+To connect and view the log file,
 
-    docker-compose -f ./docker-compose-wdb.yml logs -f
+    docker compose logs -f
 
-disconnect with `CTL-C`, and connect to the container.
+You can disconnect by pressing `CTL-C` (on Windows and Linux - use `COMMAND-C` on Mac), and the stack will continue to run in the background, but the logging spew will cease.
+
+You can connect to a specific container like so:
 
     docker exec -it myapp sh
 
-Shut down the project when you are done.
+As with any Linux container or shell, you can exit it by simply typing `exit` and pressing the enter key.
 
-    docker-compose -f ./docker-compose-wdb.yml down
+Shut down the entire project when you are done.
+
+    docker compose down
+
+### Adding another container
+
+If we want to add a persistant database to our project, we would merely add the service definition in our `docker-compose.yml` file just like we did for the `myapp` application.  Once the new service is defined, the same commands can now be used to build and deploy both containers as a complete stack.
+
+Networks, ports, and more can all be added through the `docker-compose.yml` file as you continue to develop your application stack.
 
 ## 5.) Portainer
 
