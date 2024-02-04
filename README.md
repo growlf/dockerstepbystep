@@ -6,7 +6,7 @@ In this tutorial exercise, we will skip the steps of installing Git, Docker, doc
 
 Further, this codebase and documentation is meant to be used in conjunction with the [video posted by University of Calgary](https://ucalgary.yuja.com/V/Video?v=447394&node=1843378&a=1263204823&autoplay=1)
 
-## 1.) Using Docker 
+## 1.) Using Docker
 
 ### First steps
 
@@ -234,20 +234,20 @@ Since this document is intended to be used with the video, and this tool is larg
 
 * Getting started wth [Docker](https://www.docker.com/get-started)
 * Getting started with [docker-compose](https://docs.docker.com/compose/gettingstarted/)
-* Installing [Portainer](https://docs.portainer.io/v/ce-2.9/start/install)
+* Install [Portainer]([text](https://docs.portainer.io/start/install-ce))
 
 ## Images used
 
 * [hello-world](https://hub.docker.com/_/hello-world)
-* [Redis](https://hub.docker.com/_/redis)
 * [Python](https://hub.docker.com/_/python)
 * [Alpine](https://hub.docker.com/_/alpine) Linux
 
 ## Docs and sources
 
 * [Docker](https://docs.docker.com/)
-* [redis-py](https://redis-py.readthedocs.io/en/stable/)
 * [Docker Hub](https://hub.docker.com/) - home of many official images, and more
+* [Take 3 - free Business Edition Portainer]([text](https://www.portainer.io/take-3))
+* [Toolbox](https://github.com/growlf/toolbox)
 
 ## Authors and Inspiration
 
