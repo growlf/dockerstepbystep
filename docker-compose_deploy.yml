@@ -5,7 +5,7 @@ version: "3.7"
 services:
   myapp:
     container_name: myapp
-    image: dockerstepbystep:latest
+    image: dockerstepbystep:testing1
     build: .
     ports:
       - "8080:8080"
