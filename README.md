@@ -224,7 +224,7 @@ Portainer is an amazing management and development tool that affords us easy, we
 
 Use the documentation links below to install for your particular environment.  For myself and this demo, I am using a Windows11 system with WSL2, so my installation command is the following:
 
-    docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data cr.portainer.io/portainer/portainer-ce:2.9.3
+    docker run -d -p 8000:8000 -p 9443:9443 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data cr.portainer.io/portainer/portainer-ce:latest
 
 Since this document is intended to be used with the video, and this tool is largely a visual system, I will not detail the usage here that is demonstrated in that video. That said, once this is deployed, you can look at `http://localhost:9000/` to see an amazing new world of access to your containers and projects.
 
